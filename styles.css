@@ -1,0 +1,164 @@
+/***** Resets *****/
+body, html {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit; 
+    -moz-box-sizing: inherit;
+    -webkit-box-sizing: inherit;
+}
+
+html {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+}
+/***** End Resets *****/
+
+/********* Grid *********/
+
+#grid-container {
+    position: relative;
+    height: 100vh;
+    width: 100vw;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    background-color: #38372a;
+}
+
+#card-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#overlay {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    order: 1px solid transparent;
+    border-radius: 2rem;
+    background-color: #d8bfd8;
+    opacity: 1;
+    animation: appear 2s ease-in-out 1s forwards;
+    cursor: pointer;
+}
+
+#card {
+    width: 22rem;
+    height: 22rem;
+    z-index: 3;
+    text-align: center;
+    animation: appear 2s ease-in-out 1s forwards;
+}
+
+#img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: url(blue-book.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    opacity: 0;
+}
+
+#text {
+    color: #3456a9;
+    top: 6rem;
+    font-size: 32px;
+    font-weight: 600;
+    text-shadow: 3px 2px 4px #a3a8b3;
+    opacity: 0;
+    animation: show 2s linear 2.5s forwards;
+    align-self: center;
+    z-index: 99;
+    position: relative;
+}
+
+button {
+    width: 9rem;
+    height: 3rem;
+    position: absolute;
+    bottom: 6rem;
+    left: 6.5rem;
+    background-color: #3456a9;
+    border: 1px solid transparent;
+    border-radius: 10px;
+    color: #d8bfd8;
+    font-size: 22px;
+    cursor: pointer;
+    opacity: 0;
+    box-shadow: 4px 3px #a3a8b3;
+    animation: show 2s linear 3.5s forwards;
+    z-index: 99;
+}
+
+button:hover {
+    box-shadow: 2px 2px #a3a8b3;
+}
+
+
+#text2 {
+    position: absolute;
+    left: 5rem;
+    bottom: 1rem;
+    color: #d8bfd8;
+    font-family: cursive, sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 23px;
+    text-align: center;
+    max-width: 200px;
+    opacity: 0;
+    transition: 2.5s;
+}
+
+#code {
+    position: absolute;
+    top: 5px;
+    left: 3.5rem;
+}
+
+/*** The animation code ***/
+@keyframes appear {
+    from {
+        transform: scale3d(0, 0, 0);
+    }
+
+    to {
+        transform: scale3d(1, 1, 10);
+        opacity: 1;
+    }
+}
+
+@keyframes show {
+    from {
+        transform: scale3d(0, 0, 0);
+        opacity: 0;
+    }
+
+    to {
+        transform: scale3d(1, 1, 10);
+        opacity: 1;
+    }
+}
+
+@keyframes reveal {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+

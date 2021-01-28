@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js" integrity="sha512-IQLehpLoVS4fNzl7IfH8Iowfm5+RiMGtHykgZJl9AWMgqx0AmJ6cRWcB+GaGVtIsnC4voMfm8f2vwtY+6oPjpQ==" crossorigin="anonymous"></script>
+    <title>Tara Birthday Card</title>
+</head>
+<body>
+    <div id="grid-container">
+        
+    </div>
+    <div id="card-container">
+        <div id="overlay"></div>
+        <div id="card">
+            <div id="img"></div>
+            <div id="text">Happy Birthday Tara</div>
+            <button id="btn" onclick="myFunction()">Open Me!</button>
+            <div class="hide" id="code"></div>
+            <div class="hide" id="text2">Enjoy Your Time Away...at some stage xxx</div>
+        </div>
+    </div>
+
+    <script>
+        function myFunction() {
+            let text = document.getElementById("text");
+            let btn = document.getElementById("btn");
+            let code = document.getElementById("code");
+            
+            text.style.visibility = "hidden";
+            btn.style.visibility = "hidden";
+            code.style.opacity = "1";
+
+            let str = "€600 Voucher";
+            let res = str.split("");
+
+            for (let i = 0; i < res.length; i++) {
+                let elem = document.createElement("span");
+                elem.textContent = res[i];
+                document.querySelector("#code").appendChild(elem);
+            }
+
+            function initBanner() {
+
+            var tl = gsap.timeline({});
+
+            var words = document.querySelectorAll("span");
+            let img = document.getElementById("img");
+            let text2 = document.getElementById("text2")
+
+
+            tl
+                
+                .to(img, { autoAlpha: 1, duration: 2 })
+                .fromTo(words, { autoAlpha: 0, color: 'white', fontSize: 28 }, { duration: 1, autoAlpha: 1, color: '#d8bfd8', fontSize: 40, stagger: "0.05" }, '>-0.75')
+                .to(text2, { duration: 0.5, autoAlpha: 1 }, '>-0.55')
+            }
+
+            initBanner();
+        }
+    </script>
+</body>
+</html>
