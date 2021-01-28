@@ -47,7 +47,7 @@ html {
     order: 1px solid transparent;
     border-radius: 2rem;
     background-color: #d8bfd8;
-    opacity: 1;
+    opacity: 0;
     animation: appear 2s ease-in-out 1s forwards;
     cursor: pointer;
 }
@@ -123,7 +123,6 @@ button:hover {
 
 #code {
     position: absolute;
-    font-weight: 600;
     top: 5px;
     left: 3.5rem;
 }
